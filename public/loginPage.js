@@ -11,7 +11,7 @@ userForm.loginFormCallback = data => {
   })
 };
 userForm.registerFormCallback = data => {
-  return ApiConnector.register(data, response => {
+  ApiConnector.register(data, response => {
     if(response.success) {
       location.reload();
     }
