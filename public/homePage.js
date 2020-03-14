@@ -40,7 +40,6 @@ moneyManager.addMoneyCallback = data => {
     if(!response.success) { 
       moneyManager.setMessage(true, response.data);
     } else { 
-      console.log(response);
       ProfileWidget.showProfile(response.data);
       moneyManager.setMessage(null, `Success!`);
     }    
