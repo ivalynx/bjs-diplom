@@ -3,7 +3,7 @@
 const logoutButton = new LogoutButton();
 
 logoutButton.action = function() {
-  ApiConnector.logout( () => {
+  ApiConnector.logout( (response) => {
     if(response.success) {
       location.reload();
     }
@@ -31,7 +31,7 @@ function getRatesBoard() {
   });
 }
 
-setInterval(getRatesBoard(), 1000);
+setInterval(getRatesBoard, 1000);
 
 const moneyManager = new MoneyManager();
 
@@ -41,7 +41,7 @@ moneyManager.addMoneyCallback = data => {
       moneyManager.setMessage(true, response.data);
     } else { 
       ProfileWidget.showProfile(response.data);
-      moneyManager.setMessage(null, `Success!`);
+      moneyManager.setMessage(false, `You have successfully added ${data.amount} ${data.currency}!`);
     }    
   })
 };
@@ -52,7 +52,7 @@ moneyManager.conversionMoneyCallback = data => {
       moneyManager.setMessage(true, response.data);
     } else {  
       ProfileWidget.showProfile(response.data);
-      moneyManager.setMessage(null, `Success!`);
+      moneyManager.setMessage(null, `You have successfully converted ${data.amount} ${data.currency}!`);
     }    
   })
 };
@@ -63,7 +63,7 @@ moneyManager.sendMoneyCallback = data => {
       moneyManager.setMessage(true, response.data);
     } else {  
       ProfileWidget.showProfile(response.data);
-      moneyManager.setMessage(null, `Success!`);
+      moneyManager.setMessage(null, `You have successfully sended ${data.amount} ${data.currency}!`);
     }    
   })
 };
