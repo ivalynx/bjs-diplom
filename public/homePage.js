@@ -52,7 +52,7 @@ moneyManager.conversionMoneyCallback = data => {
       moneyManager.setMessage(true, response.data);
     } else {  
       ProfileWidget.showProfile(response.data);
-      moneyManager.setMessage(null, `You have successfully converted ${data.amount} ${data.currency}!`);
+      moneyManager.setMessage(false, `You have successfully converted ${data.amount} ${data.currency}!`);
     }    
   })
 };
@@ -63,7 +63,7 @@ moneyManager.sendMoneyCallback = data => {
       moneyManager.setMessage(true, response.data);
     } else {  
       ProfileWidget.showProfile(response.data);
-      moneyManager.setMessage(null, `You have successfully sended ${data.amount} ${data.currency}!`);
+      moneyManager.setMessage(false, `You have successfully sended ${data.amount} ${data.currency}!`);
     }    
   })
 };
@@ -89,7 +89,7 @@ favoritesWidget.addUserCallback = data => {
       favoritesWidget.clearTable();
       favoritesWidget.fillTable(response.data);
       moneyManager.updateUsersList(response.data);      
-      moneyManager.setMessage(null, `Success!`);
+      moneyManager.setMessage(false, `Success!`);
     }  
   })
 }
@@ -102,7 +102,7 @@ favoritesWidget.removeUserCallback = data => {
       favoritesWidget.clearTable();
       favoritesWidget.fillTable(response.data);
       moneyManager.updateUsersList(response.data);      
-      moneyManager.setMessage(null, `Success!`);
+      moneyManager.setMessage(false, `Success!`);
     }  
   })
 }
