@@ -88,8 +88,9 @@ favoritesWidget.addUserCallback = data => {
     } else {        
       favoritesWidget.clearTable();
       favoritesWidget.fillTable(response.data);
-      moneyManager.updateUsersList(response.data);      
-      moneyManager.setMessage(false, `Success!`);
+      moneyManager.updateUsersList(response.data);     
+      console.log(data) 
+      moneyManager.setMessage(false, `You have successfully added username ${data.name} id ${data.id}  for your Favorite list!`);
     }  
   })
 }
@@ -101,8 +102,10 @@ favoritesWidget.removeUserCallback = data => {
     } else {        
       favoritesWidget.clearTable();
       favoritesWidget.fillTable(response.data);
-      moneyManager.updateUsersList(response.data);      
-      moneyManager.setMessage(false, `Success!`);
+      moneyManager.updateUsersList(response.data);   
+      console.log(data);
+      console.log(response);
+      moneyManager.setMessage(false, `You have successfully removed user id ${data} from your Favorite list.`);
     }  
   })
 }
